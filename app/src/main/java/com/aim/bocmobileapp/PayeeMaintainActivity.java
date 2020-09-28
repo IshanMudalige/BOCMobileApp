@@ -1,39 +1,46 @@
 package com.aim.bocmobileapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import com.aim.bocmobileapp.adapter.PayeeAdapter;
 import com.aim.bocmobileapp.model.Payee;
+import com.aim.bocmobileapp.model.PayeeHandler;
+import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+
 
 public class PayeeMaintainActivity extends AppCompatActivity {
+
+    public static String PAYEE = "com.aim.bocmobileapp.PAYEE";
+    public static String POS = "com.aim.bocmobileapp.POS";
+
 
     ListView listView;
     Button btnAdd;
     EditText etName,etMail,etNick,etAcc;
 
     PayeeAdapter adapter;
-    List<Payee> lst;
+    List<Payee> list;
+
+    PayeeHandler payeeHandler;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payee_maintain);
+
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         listView = findViewById(R.id.listViewPayee);
         etName = findViewById(R.id.etName);
@@ -42,24 +49,55 @@ public class PayeeMaintainActivity extends AppCompatActivity {
         etNick = findViewById(R.id.etNick);
         btnAdd = findViewById(R.id.btnPAdd);
 
-        final AppData appData = new AppData();
-        lst = appData.getPayee();
-        adapter = new PayeeAdapter(PayeeMaintainActivity.this,R.layout.item_payee,lst);
-        listView.setAdapter(adapter);
-
+        populateList();
+        if(payeeHandler ==null)
+            payeeHandler = new PayeeHandler();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Payee payee = new Payee(etName.getText().toString(),etNick.getText().toString(),etAcc.getText().toString(),etMail.getText().toString());
-                appData.addPayee(payee);
+                payeeHandler.addPayee(payee);
 
-                lst = appData.getPayee();
-                adapter = new PayeeAdapter(PayeeMaintainActivity.this,R.layout.item_payee,lst);
-                listView.setAdapter(adapter);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(payeeHandler);
+                editor.putString("PAYEE_HANDLER",json);
+                editor.apply();
+
+                populateList();
 
             }
         });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Payee pp = (Payee)adapter.getItem(position);
+
+                Intent intent = new Intent(PayeeMaintainActivity.this,PayeeUpdateActivity.class);
+                intent.putExtra(PAYEE,pp);
+                intent.putExtra(POS,position);
+                startActivity(intent);
+
+            }
+        });
+
+    }
+
+    public void populateList(){
+
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("PAYEE_HANDLER", "");
+        payeeHandler = gson.fromJson(json, PayeeHandler.class);
+
+        try {
+            list = payeeHandler.getPayee();
+            adapter = new PayeeAdapter(PayeeMaintainActivity.this,R.layout.item_payee,list);
+            listView.setAdapter(adapter);
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
 
     }
 }

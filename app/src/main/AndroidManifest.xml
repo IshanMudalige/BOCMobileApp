@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".PayeeUpdateActivity"
+            android:parentActivityName=".PayeeMaintainActivity"
+            android:label="Payee Maintenance"
+            android:theme="@style/Theme.MyApp"/>
         <activity
             android:name=".PayeeMaintainActivity"
             android:label="Payee Maintenance"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp"/>
-
+            android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

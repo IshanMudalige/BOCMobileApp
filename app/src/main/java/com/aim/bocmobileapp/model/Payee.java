@@ -1,6 +1,8 @@
 package com.aim.bocmobileapp.model;
 
-public class Payee {
+import java.io.Serializable;
+
+public class Payee implements Serializable {
     private String name;
     private String nick;
     private String acc;
