@@ -1,8 +1,10 @@
 package com.aim.bocmobileapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -61,7 +63,9 @@ public class PayeeUpdateActivity extends AppCompatActivity {
                 String json = gson.toJson(payeeHandler);
                 editor.putString("PAYEE_HANDLER",json);
                 editor.apply();
-                startActivity(new Intent(PayeeUpdateActivity.this,PayeeMaintainActivity.class));
+                etName.setText("");etAcc.setText("");etMail.setText("");etNick.setText("");
+                displayAlert("Success","Beneficiary deleted successfully.");
+
             }
         });
 
@@ -75,8 +79,38 @@ public class PayeeUpdateActivity extends AppCompatActivity {
                 String json = gson.toJson(payeeHandler);
                 editor.putString("PAYEE_HANDLER",json);
                 editor.apply();
+                etName.setText("");etAcc.setText("");etMail.setText("");etNick.setText("");
+                displayAlert("Success","Beneficiary updated successfully.");
             }
         });
 
     }
+
+    public void displayAlert(String title,String msg){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this,R.style.AlertDialog);
+        builder1.setMessage(msg);
+        builder1.setTitle(title);
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        startActivity(new Intent(PayeeUpdateActivity.this,PayeeMaintainActivity.class));
+                    }
+                });
+
+//        builder1.setNegativeButton(
+//                "No",
+//                new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        dialog.cancel();
+//                    }
+//                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
 }

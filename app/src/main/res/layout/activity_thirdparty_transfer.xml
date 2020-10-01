@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PayeeUpdateActivity"
+    tools:context=".ThirdpartyTransferActivity"
     android:background="@color/main_background">
 
     <androidx.cardview.widget.CardView
@@ -15,13 +15,114 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="@color/card_background">
+        android:background="@color/card_background"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="0dp"
+                            android:hint="Payee"
+                            app:boxCornerRadiusBottomEnd="16dp"
+                            app:boxCornerRadiusBottomStart="16dp"
+                            app:boxCornerRadiusTopEnd="16dp"
+                            app:boxCornerRadiusTopStart="16dp"
+                            android:textColorHint="@color/focus_f"
+                            app:boxStrokeColor="@color/focus_t"
+                            app:hintTextColor="@color/focus_t"
+                            android:layout_weight="1">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/dropdown_payee"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:cursorVisible="false"
+                                android:focusableInTouchMode="false"
+                                android:textColor="@color/input_text"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    app:icon="@drawable/ic_baseline_add_circle_outline_24"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/icoBtnAdd"
+                    app:elevation="0dp"
+                    app:iconTint="@color/colorPrimary"
+                    android:background="@android:color/transparent"
+                    />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:hint="Source"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_source"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:textColor="@color/input_text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
+                android:hint="Currency"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_currency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:textColor="@color/input_text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -30,7 +131,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
-                android:hint="Beneficiary Name"
+                android:hint="Amount"
                 app:boxCornerRadiusBottomEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
@@ -40,9 +141,10 @@
                 app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUName"
+                    android:id="@+id/etAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
                     android:textSize="14sp"
                     android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -54,7 +156,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
-                android:hint="Nickname"
+                android:hint="Description"
                 app:boxCornerRadiusBottomEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
@@ -64,59 +166,10 @@
                 app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUNick"
+                    android:id="@+id/etDesc"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:textColor="@color/input_text"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="8dp"
-                android:hint="Account No."
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp"
-                android:textColorHint="@color/focus_f"
-                app:boxStrokeColor="@color/focus_t"
-                app:hintTextColor="@color/focus_t">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUAcc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textSize="14sp"
-                    android:textColor="@color/input_text"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="8dp"
-                android:hint="Email"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp"
-                android:textColorHint="@color/focus_f"
-                app:boxStrokeColor="@color/focus_t"
-                app:hintTextColor="@color/focus_t">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
+                    android:layout_height="100dp"
+                    android:gravity="left"
                     android:textSize="14sp"
                     android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -124,36 +177,71 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="end">
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDelete"
+                    android:id="@+id/btnPayNow"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="8dp"
-                    android:text="DELETE"
+                    android:layout_weight="1"
+                    android:text="PAY NOW"
                     app:cornerRadius="16dp"
                     android:textColor="@color/btn_background"
                     app:strokeColor="@color/btn_background"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnUpdate"
+                    android:id="@+id/btnPayOn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="PAY ON"
+                    app:cornerRadius="16dp"
+                    android:textColor="@color/btn_background"
+                    app:strokeColor="@color/btn_background"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPayPer"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:text="PERIODICALLY"
+                    app:cornerRadius="16dp"
+                    android:textColor="@color/btn_background"
+                    app:strokeColor="@color/btn_background"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancel"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="UPDATE"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:text="CANCEL"
                     app:cornerRadius="16dp"
                     android:backgroundTint="@color/btn_background"
                     android:textColor="@color/btn_text"
-                    app:strokeColor="@color/btn_stroke"/>
+                    app:strokeColor="@color/btn_stroke" />
             </LinearLayout>
-
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

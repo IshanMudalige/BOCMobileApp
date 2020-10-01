@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_header"
+    android:background="@color/main_background"
     android:orientation="vertical"
     tools:context=".PayeeMaintainActivity">
 
@@ -14,7 +14,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
-        app:cardCornerRadius="16dp">
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardElevation="0dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,14 +36,16 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
-                app:boxStrokeColor="@color/black"
-                app:hintTextColor="@color/black">
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -55,14 +60,16 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
-                app:boxStrokeColor="@color/black"
-                app:hintTextColor="@color/black">
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNick"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -77,14 +84,17 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
-                app:boxStrokeColor="@color/black"
-                app:hintTextColor="@color/black">
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etAcc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -100,14 +110,17 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp"
-                app:boxStrokeColor="@color/black"
-                app:hintTextColor="@color/black">
+                android:textColorHint="@color/focus_f"
+                app:boxStrokeColor="@color/focus_t"
+                app:hintTextColor="@color/focus_t">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp" />
+                    android:inputType="textEmailAddress"
+                    android:textSize="14sp"
+                    android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -121,10 +134,11 @@
                     android:id="@+id/btnPAdd"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/black"
+                    android:backgroundTint="@color/btn_background"
                     android:text="ADD"
                     app:cornerRadius="16dp"
-                    app:strokeColor="@color/black" />
+                    android:textColor="@color/btn_text"
+                    app:strokeColor="@color/btn_stroke" />
             </LinearLayout>
 
 
@@ -138,7 +152,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="16dp" >
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -150,7 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp" />
+                android:layout_marginRight="8dp"
+                />
 
             <ListView
                 android:id="@+id/listViewPayee"

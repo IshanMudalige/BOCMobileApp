@@ -11,14 +11,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:text="name" />
+            android:text="name"
+            android:textColor="@color/input_text"
+            />
 
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="mail" />
+            android:text="mail"
+            android:textColor="@color/input_text"/>
 
         <TextView
             android:id="@+id/tvAcc"
@@ -26,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginBottom="8dp"
-            android:text="avv" />
+            android:text="avv"
+            android:textColor="@color/input_text"/>
     </LinearLayout>
 

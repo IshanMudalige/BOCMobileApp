@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PayeeUpdateActivity"
-            android:parentActivityName=".PayeeMaintainActivity"
-            android:label="Payee Maintenance"
+            android:name=".TransactionSuccessActivity"
             android:theme="@style/Theme.MyApp"/>
+        <activity
+            android:name=".ThirdpartyTransferActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
+            android:name=".PayeeUpdateActivity"
+            android:label="Payee Maintenance"
+            android:parentActivityName=".PayeeMaintainActivity"
+            android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".PayeeMaintainActivity"
             android:label="Payee Maintenance"

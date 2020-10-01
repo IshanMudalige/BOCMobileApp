@@ -1,12 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#FFC905</color>
-    <color name="colorPrimaryDark">#F69901</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#fdd835</color>
+    <color name="colorPrimaryDark">#c6a700</color>
     <color name="colorAccent">#03DAC5</color>
 
-    <color name="light_yellow">#FFC905</color>
-    <color name="dark_yellow">#F69901</color>
     <color name="black">#000000</color>
     <color name="gray">#B6B6B6</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="yellow">#FCD736</color>
+    <color name="dark_black">#202020</color>
+    <color name="light_black">#424242</color>
+
+    <color name="transparent_black_light">#33000000</color>
+    <color name="transparent_black">#55000000</color>
+    <color name="transparent_black_dark">#99000000</color>
+
+    <!-- ============theme one colors==============   -->
+<!--    <color name="card_background">#424242</color>-->
+<!--    <color name="main_background">#202020</color>-->
+
+<!--    <color name="btn_background">#FCD736</color>-->
+<!--    <color name="btn_stroke">#FCD736</color>-->
+<!--    <color name="btn_text">#000000</color>-->
+
+<!--    <color name="input_text">#B6B6B6</color>-->
+<!--    <color name="focus_t">#FCD736</color>-->
+<!--    <color name="focus_f">#B6B6B6</color>-->
+
+<!--    <color name="card_item_background">#202020</color>-->
+<!--    <color name="card_item_stroke">#202020</color>-->
+
+<!--    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#B6B6B6</color>-->
+
+    <!-- ============theme one colors==============   -->
+    <color name="card_background">#393939</color>
+    <color name="main_background">#202020</color>
+
+    <color name="btn_background">#fdd835</color>
+    <color name="btn_stroke">#fdd835</color>
+    <color name="btn_text">#000000</color>
+
+    <color name="input_text">#B6B6B6</color>
+    <color name="focus_t">#ffff6b</color>
+    <color name="focus_f">#B6B6B6</color>
+
+    <color name="card_item_background">#202020</color>
+    <color name="card_item_stroke">#202020</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#B6B6B6</color>
 
 </resources>
