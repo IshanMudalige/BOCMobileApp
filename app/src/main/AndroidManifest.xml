@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".BillerUpdateActivity"
+            android:label="Biller Maintenance"
+            android:parentActivityName=".BillerMaintainActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
             android:name=".BillerMaintainActivity"
             android:label="Biller Maintenance"
             android:parentActivityName=".MainActivity"
