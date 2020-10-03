@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(id == R.id.nav_payee){
             startActivity(new Intent(this,PayeeMaintainActivity.class));
         }else if(id == R.id.nav_biller){
-
+            startActivity(new Intent(this,BillerMaintainActivity.class));
         }else if(id == R.id.nav_contact){
 
         }else if(id == R.id.nav_setting){

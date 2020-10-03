@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".BillerMaintainActivity"
+            android:label="Biller Maintenance"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
             android:name=".TransactionSuccessActivity"
-            android:theme="@style/Theme.MyApp"/>
+            android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".ThirdpartyTransferActivity"
             android:theme="@style/Theme.MyApp" />
