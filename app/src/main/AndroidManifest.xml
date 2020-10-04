@@ -13,6 +13,16 @@
             android:theme="@style/Theme.MyApp">
         </activity>
         <activity
+            android:name=".BillerUpdateActivity"
+            android:label="Biller Maintenance"
+            android:parentActivityName=".BillerMaintainActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
+            android:name=".BillerMaintainActivity"
+            android:label="Biller Maintenance"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MyApp" />
+        <activity
             android:name=".TransactionSuccessActivity"
             android:theme="@style/Theme.MyApp" />
         <activity

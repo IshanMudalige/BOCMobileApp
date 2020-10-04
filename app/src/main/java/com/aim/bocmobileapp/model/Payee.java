@@ -16,6 +16,7 @@ public class Payee implements Serializable {
     }
 
     public Payee() {
+
     }
 
     public String getName() {
