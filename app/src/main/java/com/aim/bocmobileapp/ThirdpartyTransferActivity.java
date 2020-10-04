@@ -36,7 +36,7 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
         etAmount = findViewById(R.id.etAmount);
         etDescription = findViewById(R.id.etDesc);
         btnPayNow = findViewById(R.id.btnPayNow);
-        btnPayOn = findViewById(R.id.btnPayOn);
+        btnPayOn = findViewById(R.id.btnAccount);
         btnPayPer = findViewById(R.id.btnPayPer);
         btnAdd = findViewById(R.id.icoBtnAdd);
         btnCancel= findViewById(R.id.btnCancel);

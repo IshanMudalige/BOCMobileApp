@@ -195,7 +195,7 @@
                     app:strokeColor="@color/btn_background"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnPayOn"
+                    android:id="@+id/btnAccount"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
