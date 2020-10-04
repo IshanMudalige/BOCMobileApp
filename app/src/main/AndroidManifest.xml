@@ -11,6 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PayBills"
             android:theme="@style/Theme.MyApp" />
+        <activity android:name=".OwnAccount"
+            android:theme="@style/Theme.MyApp">
+        </activity>
         <activity
             android:name=".BillerUpdateActivity"
             android:label="Biller Maintenance"
