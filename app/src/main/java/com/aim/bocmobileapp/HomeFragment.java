@@ -26,14 +26,15 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-       // TextView tt = view.findViewById(R.id.tvBtn);
+        Button btnTT = view.findViewById(R.id.btnthirdparty);
 
-       /* tt.setOnClickListener(new View.OnClickListener() {
+       btnTT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(),ThirdpartyTransferActivity.class));
             }
-        });*/
+        });
+
         Button btn= view.findViewById(R.id.btnownaccount);
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,16 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(),OwnAccount.class));
             }
         });
+
+        Button btnPay = view.findViewById(R.id.btnpaybills);
+
+        btnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),PayBills.class));
+            }
+        });
+
         return view;
 
     }

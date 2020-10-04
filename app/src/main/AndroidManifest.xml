@@ -10,10 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".PayBills"
+            android:label="Pay Bills"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.MyApp" />
-        <activity android:name=".OwnAccount"
-            android:theme="@style/Theme.MyApp">
-        </activity>
+        <activity
+            android:name=".OwnAccount"
+            android:label="Own Account Transfer"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.MyApp"/>
         <activity
             android:name=".BillerUpdateActivity"
             android:label="Biller Maintenance"
@@ -29,6 +33,8 @@
             android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".ThirdpartyTransferActivity"
+            android:label="Third party Transfer"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".PayeeUpdateActivity"
