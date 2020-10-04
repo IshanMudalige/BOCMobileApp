@@ -35,7 +35,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginRight="0dp"
-                    android:hint="Payee"
+                    android:hint="Biller"
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
@@ -98,13 +98,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
-                android:hint="Payee No"
+                android:hint="Biller No"
                 app:boxCornerRadiusBottomEnd="16dp"
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
@@ -113,13 +113,12 @@
                 app:boxStrokeColor="@color/focus_t"
                 app:hintTextColor="@color/focus_t">
 
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_BPayeeNo"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etBPayeeNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:textSize="14sp"
-                    android:focusableInTouchMode="false"
-                    android:cursorVisible="false"
                     android:textColor="@color/input_text"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -144,7 +143,7 @@
                     android:id="@+id/etBFrmAcc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:textSize="14sp"
                     android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -169,6 +168,7 @@
                     android:id="@+id/etBAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:gravity="left"
                     android:textSize="14sp"
                     android:textColor="@color/input_text"/>
