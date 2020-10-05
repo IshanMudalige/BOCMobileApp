@@ -49,7 +49,7 @@ public class PayeeMaintainActivity extends AppCompatActivity {
         etAcc = findViewById(R.id.etAcc);
         etMail = findViewById(R.id.etEmail);
         etNick = findViewById(R.id.etNick);
-        btnAdd = findViewById(R.id.btnPAdd);
+        btnAdd = findViewById(R.id.btnLoginUser);
 
         populateList();
         if(payeeHandler ==null)
