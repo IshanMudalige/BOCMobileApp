@@ -3,6 +3,7 @@ package com.aim.bocmobileapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,7 @@ public class ForgotPassword extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(ForgotPassword.this,"Correct OTP",Toast.LENGTH_SHORT).show();
+                        openActivityLoadLogin();
                     }
                 });
 
@@ -43,5 +45,10 @@ public class ForgotPassword extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+
+    private void openActivityLoadLogin(){
+        Intent intent = new Intent(this, ForgotPasswordNew.class);
+        startActivity(intent);
     }
 }

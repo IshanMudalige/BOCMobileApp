@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),ForgotPasswordNew.class));
+                startActivity(new Intent(getContext(),LogIn.class));
             }
         });
 
