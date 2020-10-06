@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LogInPage"
-    android:layout_marginTop="1sp">
+    tools:context=".LogInPage">
 
     <View
         android:id="@+id/topviewlogin"
@@ -43,7 +42,7 @@
 
     <LinearLayout
         android:layout_width="358dp"
-        android:layout_height="298dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="55dp"
         android:layout_marginEnd="1dp"
@@ -55,7 +54,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -117,12 +116,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="60sp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginRight="8dp"
                 android:backgroundTint="@color/btn_background"
-                android:text="LOG IN"
+                android:text="LOGIN"
                 android:textColor="@color/btn_text"
-                android:textSize="16dp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:cornerRadius="16dp"
                 app:strokeColor="@color/btn_stroke" />
@@ -134,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginRight="8dp"
                 android:text="Forgot Password?"
                 android:textAlignment="center"
@@ -144,11 +143,12 @@
 
             <TextView
                 android:id="@+id/twNewUser"
-                android:layout_width="339dp"
-                android:layout_height="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
                 android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:text="New User? Register Now"
                 android:textAlignment="center"
                 android:textStyle="bold" />

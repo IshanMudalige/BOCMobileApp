@@ -21,18 +21,24 @@
         <activity
             android:name=".LogIn"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp" />
+            android:theme="@style/Theme.MyApp.No">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LogInPage"
-            android:label="Log In"
+            android:label="Login"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp" />
+            android:theme="@style/Theme.MyApp">
+        </activity>
         <activity
             android:name=".RegisterPage"
             android:label="Register"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp" />
+            android:theme="@style/Theme.MyApp"/>
         <activity
             android:name=".PayBills"
             android:label="Pay Bills"
@@ -74,11 +80,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -17,15 +17,34 @@ public class LogInPage extends AppCompatActivity {
 
     Button login;
     EditText username,pwd;
+    TextView register,forget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in_page);
 
+        getSupportActionBar().setElevation(0);
+
         login = (Button)findViewById(R.id.btnLoginUser);
         username = (EditText)findViewById(R.id.etUserNameLogin);
         pwd = (EditText)findViewById(R.id.etPasswordLogin);
+        register = findViewById(R.id.twNewUser);
+        forget = findViewById(R.id.twForgotPassword);
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogInPage.this,RegisterPage.class));
+            }
+        });
+
+        forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LogInPage.this,ForgotPassword.class));
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +60,7 @@ public class LogInPage extends AppCompatActivity {
 
         if(user.equals("Kamal") && password.equals("Kamal123")){
             Toast.makeText(this,"LOG IN SUCCESSFUL",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ForgotPassword.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(this,"LOG IN FAILED",Toast.LENGTH_SHORT).show();
