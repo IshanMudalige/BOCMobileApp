@@ -24,7 +24,7 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
     EditText etAmount,etDescription;
 
     String[] CURRENCY = new String[] {"LKR", "USD", "AUS", "IND","JAP"};
-    String[] SOURCE = new String[] {"LKR", "USD", "AUS", "IND","JAP"};
+    String[] SOURCE = new String[] {"Acc Kandy", "Acc Malabe"};
 
     String desc,amount,payee,source,currency;
 

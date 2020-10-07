@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -229,7 +229,7 @@
         android:backgroundTint="@color/btn_background"
         android:text="Register"
         android:textColor="@color/btn_text"
-        android:textSize="16dp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:cornerRadius="16dp"
         app:strokeColor="@color/btn_stroke" />

@@ -15,7 +15,7 @@ import android.widget.Button;
 
 public class LogIn extends AppCompatActivity {
 
-    private Button btnLoginPage, btnRegister;
+    Button btnLoginPage, btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,8 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
 
 
-        btnLoginPage = (Button) findViewById(R.id.btnLogin);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnLoginPage = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
 
         btnLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,7 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -38,12 +39,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
         //-------------------- set navigation header -----------------------------------------------
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.tvName);
         TextView navEmail = headerView.findViewById(R.id.tvEmail);
-        navUsername.setText("name");
-        navEmail.setText("email");
+        navUsername.setText("User user");
+        navEmail.setText("user123@gmail.com");
 
         //------------------ set default as home ---------------------------------------------------
         navigationView.setCheckedItem(R.id.nav_home);
