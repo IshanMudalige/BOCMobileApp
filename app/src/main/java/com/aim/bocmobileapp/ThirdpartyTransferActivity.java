@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,13 +54,26 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
         btnPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                amount = etAmount.getText().toString();
-                desc = etDescription.getText().toString();
-                currency = cbCurrency.getText().toString();
-                source = cbSource.getText().toString();
-                payee = cbPayee.getText().toString();
 
-                showSuccessMsg();
+                if(TextUtils.isEmpty(etAmount.getText())){
+                    etAmount.setError("Amount required");
+                }else if(TextUtils.isEmpty(etDescription.getText())){
+                    etDescription.setError("A description required");
+//                }else if(TextUtils.isEmpty(cbCurrency.getText())){
+//                    cbCurrency.setError("Currency required");
+//                }else if(TextUtils.isEmpty(cbSource.getText())){
+//                    cbSource.setError("Please select a source");
+//                }else if(TextUtils.isEmpty(cbPayee.getText())) {
+//                    cbPayee.setError("Please select a payee");
+                }else {
+                    amount = etAmount.getText().toString();
+                    desc = etDescription.getText().toString();
+                    currency = cbCurrency.getText().toString();
+                    source = cbSource.getText().toString();
+                    payee = cbPayee.getText().toString();
+
+                    showSuccessMsg();
+                }
             }
         });
 

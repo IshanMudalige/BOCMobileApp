@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotPasswordNew"
+
+        <activity
+            android:name=".ForgotPasswordNew"
             android:label="Select New Password"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.MyApp" />
@@ -32,13 +34,12 @@
             android:name=".LogInPage"
             android:label="Login"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp">
-        </activity>
+            android:theme="@style/Theme.MyApp"/>
         <activity
             android:name=".RegisterPage"
             android:label="Register"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MyApp"/>
+            android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".PayBills"
             android:label="Pay Bills"
@@ -79,9 +80,7 @@
             android:theme="@style/Theme.MyApp" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

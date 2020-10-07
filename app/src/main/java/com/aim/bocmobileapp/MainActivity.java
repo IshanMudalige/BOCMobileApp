@@ -21,7 +21,7 @@ import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -62,16 +62,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             fragment = new HomeFragment();
             displaySelectedFragment(fragment);
+            navigationView.setCheckedItem(R.id.nav_home);
         }else if(id == R.id.nav_payee){
             startActivity(new Intent(this,PayeeMaintainActivity.class));
         }else if(id == R.id.nav_biller){
             startActivity(new Intent(this,BillerMaintainActivity.class));
         }else if(id == R.id.nav_contact){
-
+            fragment = new ContactFragment();
+            displaySelectedFragment(fragment);
+            navigationView.setCheckedItem(R.id.nav_contact);
         }else if(id == R.id.nav_setting){
 
         }else if(id == R.id.nav_logout){
-
+            startActivity(new Intent(this,LogInPage.class));
         }else if(id == R.id.nav_exit){
 
         }

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,15 +73,28 @@ public class PayeeUpdateActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Payee payeeUpdated = new Payee(etName.getText().toString(),etNick.getText().toString(),etAcc.getText().toString(),etMail.getText().toString());
-                payeeHandler.updatePayee(payeeUpdated,position);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(payeeHandler);
-                editor.putString("PAYEE_HANDLER",json);
-                editor.apply();
-                etName.setText("");etAcc.setText("");etMail.setText("");etNick.setText("");
-                displayAlert("Success","Beneficiary updated successfully.");
+                if(TextUtils.isEmpty(etName.getText())) {
+                    etName.setError("Name is Required");
+                }else if(TextUtils.isEmpty(etNick.getText())){
+                    etNick.setError("Nickname is Required");
+                }else if(TextUtils.isEmpty(etAcc.getText())){
+                    etAcc.setError("Acc Number is Required");
+                }else if(TextUtils.isEmpty(etNick.getText())){
+                    etMail.setError("Email is Required");
+                }else {
+                    Payee payeeUpdated = new Payee(etName.getText().toString(), etNick.getText().toString(), etAcc.getText().toString(), etMail.getText().toString());
+                    payeeHandler.updatePayee(payeeUpdated, position);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Gson gson = new Gson();
+                    String json = gson.toJson(payeeHandler);
+                    editor.putString("PAYEE_HANDLER", json);
+                    editor.apply();
+                    etName.setText("");
+                    etAcc.setText("");
+                    etMail.setText("");
+                    etNick.setText("");
+                    displayAlert("Success", "Beneficiary updated successfully.");
+                }
             }
         });
 

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -58,20 +59,32 @@ public class PayeeMaintainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Payee payee = new Payee(etName.getText().toString(),etNick.getText().toString(),etAcc.getText().toString(),etMail.getText().toString());
-                payeeHandler.addPayee(payee);
+                if(TextUtils.isEmpty(etName.getText())) {
+                    etName.setError("Name is Required");
+                }else if(TextUtils.isEmpty(etNick.getText())){
+                    etNick.setError("Nickname is Required");
+                }else if(TextUtils.isEmpty(etAcc.getText())){
+                    etAcc.setError("Acc Number is Required");
+                }else if(TextUtils.isEmpty(etNick.getText())){
+                    etMail.setError("Email is Required");
+                }else {
+                    Payee payee = new Payee(etName.getText().toString(), etNick.getText().toString(), etAcc.getText().toString(), etMail.getText().toString());
+                    payeeHandler.addPayee(payee);
 
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(payeeHandler);
-                editor.putString("PAYEE_HANDLER",json);
-                editor.apply();
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Gson gson = new Gson();
+                    String json = gson.toJson(payeeHandler);
+                    editor.putString("PAYEE_HANDLER", json);
+                    editor.apply();
 
-                etName.setText("");etAcc.setText("");etMail.setText("");etNick.setText("");
-                displayAlert("Success","Beneficiary successfully added.");
+                    etName.setText("");
+                    etAcc.setText("");
+                    etMail.setText("");
+                    etNick.setText("");
+                    displayAlert("Success", "Beneficiary successfully added.");
 
-                populateList();
-
+                    populateList();
+                }
             }
         });
 
