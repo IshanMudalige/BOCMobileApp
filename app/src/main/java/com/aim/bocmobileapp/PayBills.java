@@ -3,10 +3,13 @@ package com.aim.bocmobileapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aim.bocmobileapp.model.Biller;
+import com.aim.bocmobileapp.model.BillerHandler;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class PayBills extends AppCompatActivity {
 
     Button btnBPayNow, btnBPayOn, btnBPayPer, btnBCancel, icoBtnAddBiller;
@@ -26,6 +36,18 @@ public class PayBills extends AppCompatActivity {
     String[] CUSTOMER = new String[] {"R.M.Rajapakse", "Moveena Rajapakse", "R.M.Jayawardena"};
 
     String cus,bill,b_no,frmACC,amount;
+
+    SharedPreferences sharedpreferences;
+    BillerHandler billerHandler;
+
+    List<Biller> list;
+    List<String> BILLER = new ArrayList<>();
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getRecord();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +68,29 @@ public class PayBills extends AppCompatActivity {
         ArrayAdapter<String> adapterCustomer = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, CUSTOMER);
         dropdown_BCustomer.setAdapter(adapterCustomer);
 
+        ArrayAdapter<String> adapterBiller = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, BILLER);
+        dropdown_BPayee.setAdapter(adapterBiller);
+
         btnBPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cus = dropdown_BCustomer.getText().toString();
-                bill = dropdown_BPayee.getText().toString();
-                b_no = etBPayeeNo.getText().toString();
-                frmACC = etBFrmAcc.getText().toString();
-                amount = etBAmount.getText().toString();
 
-                showSuccessMsg();
+                if(TextUtils.isEmpty(etBPayeeNo.getText())){
+                    etBPayeeNo.setError("Biller No is required");
+                }else if(TextUtils.isEmpty(etBFrmAcc.getText())){
+                    etBFrmAcc.setError("Account is required");
+                }else if(TextUtils.isEmpty(etBAmount.getText())){
+                    etBAmount.setError("Amount required");
+                }else {
+                    cus = dropdown_BCustomer.getText().toString();
+                    bill = dropdown_BPayee.getText().toString();
+                    b_no = etBPayeeNo.getText().toString();
+                    frmACC = etBFrmAcc.getText().toString();
+                    amount = etBAmount.getText().toString();
+
+
+                    showSuccessMsg();
+                }
             }
         });
 
@@ -133,6 +168,21 @@ public class PayBills extends AppCompatActivity {
         });
 
 
+    }
+
+    public void getRecord(){
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("BILLER_HANDLER", "");
+        billerHandler = gson.fromJson(json, BillerHandler.class);
+
+        list = billerHandler.getBiller();
+        BILLER.clear();
+        for(Biller x:list){
+
+            System.out.println(x.getB_name());
+            BILLER.add(x.getB_name());
+        }
     }
 
 }
