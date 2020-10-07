@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.black));
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -72,11 +74,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             displaySelectedFragment(fragment);
             navigationView.setCheckedItem(R.id.nav_contact);
         }else if(id == R.id.nav_setting){
-
+            Toast.makeText(this, "This feature not available.", Toast.LENGTH_SHORT).show();
         }else if(id == R.id.nav_logout){
             startActivity(new Intent(this,LogInPage.class));
         }else if(id == R.id.nav_exit){
-
+            finish();
+            System.exit(0);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

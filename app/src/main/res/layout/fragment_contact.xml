@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/card_background"
+    android:background="@color/main_background"
     tools:context=".ContactFragment"
     style="@style/AppTheme">
 
@@ -28,7 +28,9 @@
             app:cardCornerRadius="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
+            android:layout_marginRight="8dp"
+            android:elevation="0dp"
+            android:backgroundTint="@color/card_background">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,19 +44,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_call_24"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    app:tint="@color/colorPrimary"/>
                 <ImageView
                     android:id="@+id/imgMail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_mail_outline_24"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    app:tint="@color/colorPrimary"/>
                 <ImageView
                     android:id="@+id/imgLoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_location_on_24"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    app:tint="@color/colorPrimary"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -103,7 +108,9 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            app:cardCornerRadius="16dp">
+            app:cardCornerRadius="16dp"
+            android:elevation="0dp"
+            android:backgroundTint="@color/card_background">
 
             <TextView
                 android:layout_width="match_parent"
@@ -112,6 +119,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="12dp"
+                android:textColor="@color/gray"
                 android:text="Electronic Banking Unit, 21st Floor, Bank of Ceylon Head Office,\nNo 01, \nBank of Ceylon Mawatha, \nColombo 01"/>
         </androidx.cardview.widget.CardView>
 
