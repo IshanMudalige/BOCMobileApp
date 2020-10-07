@@ -51,7 +51,19 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(),PayBills.class));
             }
         });
-        
+
+
+
+        Button btnac = view.findViewById(R.id.btnaccount);
+
+        btnac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),Account.class));
+            }
+        });
+
+
         return view;
 
     }
