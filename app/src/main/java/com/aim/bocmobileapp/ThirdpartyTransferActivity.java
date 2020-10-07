@@ -3,7 +3,9 @@ package com.aim.bocmobileapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,6 +20,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aim.bocmobileapp.model.Payee;
+import com.aim.bocmobileapp.model.PayeeHandler;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThirdpartyTransferActivity extends AppCompatActivity {
 
     Button btnPayNow,btnPayOn,btnPayPer,btnCancel,btnAdd;
@@ -28,6 +37,18 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
     String[] SOURCE = new String[] {"Acc Kandy", "Acc Malabe"};
 
     String desc,amount,payee,source,currency;
+
+    SharedPreferences sharedpreferences;
+    PayeeHandler payeeHandler;
+
+    List<Payee> list;
+    List<String> PAYEE = new ArrayList<>();
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getRecord();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +65,9 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
         cbPayee = findViewById(R.id.dropdown_payee);
         cbCurrency = findViewById(R.id.dropdown_currency);
         cbSource = findViewById(R.id.dropdown_source);
+
+        ArrayAdapter<String> adapterPayee = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, PAYEE);
+        cbPayee.setAdapter(adapterPayee);
 
         ArrayAdapter<String> adapterCurrency = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, CURRENCY);
         cbCurrency.setAdapter(adapterCurrency);
@@ -152,6 +176,21 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public void getRecord(){
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("PAYEE_HANDLER", "");
+        payeeHandler = gson.fromJson(json, PayeeHandler.class);
+
+        list = payeeHandler.getPayee();
+        PAYEE.clear();
+        for(Payee x:list){
+
+            System.out.println(x.getName());
+            PAYEE.add(x.getName());
+        }
     }
 
 

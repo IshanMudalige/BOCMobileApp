@@ -30,16 +30,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/yellow</item>
-
-<!--        <item name="android:textColorPrimary">@color/black</item>-->
     </style>
 
     <style name="Theme.MyApp.No" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/yellow</item>
-
-        <!--        <item name="android:textColorPrimary">@color/black</item>-->
     </style>
 
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -56,6 +52,6 @@
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">@color/white</item>
         <item name="colorAccent">@color/white</item>
-
     </style>
+
 </resources>
