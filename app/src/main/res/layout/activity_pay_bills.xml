@@ -98,7 +98,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -113,18 +113,19 @@
                 app:boxStrokeColor="@color/focus_t"
                 app:hintTextColor="@color/focus_t">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/etBPayeeNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:textSize="14sp"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
                     android:textColor="@color/input_text"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -139,12 +140,13 @@
                 app:boxStrokeColor="@color/focus_t"
                 app:hintTextColor="@color/focus_t">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <AutoCompleteTextView
                     android:id="@+id/etBFrmAcc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
                     android:textSize="14sp"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
                     android:textColor="@color/input_text"/>
             </com.google.android.material.textfield.TextInputLayout>
 

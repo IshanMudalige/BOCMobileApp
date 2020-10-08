@@ -30,10 +30,11 @@ import java.util.List;
 public class PayBills extends AppCompatActivity {
 
     Button btnBPayNow, btnBPayOn, btnBPayPer, btnBCancel, icoBtnAddBiller;
-    AutoCompleteTextView dropdown_BPayee, dropdown_BCustomer;
-    EditText etBFrmAcc, etBAmount, etBPayeeNo;
+    AutoCompleteTextView dropdown_BPayee, dropdown_BCustomer, etBPayeeNo, etBFrmAcc;
+    EditText etBAmount;
 
     String[] CUSTOMER = new String[] {"R.M.Rajapakse", "Moveena Rajapakse", "R.M.Jayawardena"};
+    String[] FRMACC = new String[] {"0123489080", "0123489080", "0123489811"};
 
     String cus,bill,b_no,frmACC,amount;
 
@@ -42,11 +43,13 @@ public class PayBills extends AppCompatActivity {
 
     List<Biller> list;
     List<String> BILLER = new ArrayList<>();
+    List<String> BILLERNO = new ArrayList<>();
 
     @Override
     protected void onResume() {
         super.onResume();
         getRecord();
+        getBillNo();
     }
 
     @Override
@@ -68,8 +71,14 @@ public class PayBills extends AppCompatActivity {
         ArrayAdapter<String> adapterCustomer = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, CUSTOMER);
         dropdown_BCustomer.setAdapter(adapterCustomer);
 
+        ArrayAdapter<String> adapterFrmAccount = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, FRMACC);
+        etBFrmAcc.setAdapter(adapterFrmAccount);
+
         ArrayAdapter<String> adapterBiller = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, BILLER);
         dropdown_BPayee.setAdapter(adapterBiller);
+
+        ArrayAdapter<String> adapterBillerNo = new ArrayAdapter<>(this, R.layout.dropdown_menu_popup_item, BILLERNO);
+        etBPayeeNo.setAdapter(adapterBillerNo);
 
         btnBPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,6 +192,24 @@ public class PayBills extends AppCompatActivity {
             System.out.println(x.getB_name());
             BILLER.add(x.getB_name());
         }
+    }
+
+    public void getBillNo() {
+        sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedpreferences.getString("BILLER_HANDLER", "");
+        billerHandler = gson.fromJson(json, BillerHandler.class);
+
+        //String cName = dropdown_BCustomer.getText().toString();
+        list = billerHandler.getBiller();
+        BILLERNO.clear();
+
+        for(Biller x:list){
+
+            System.out.println(x.getB_No());
+            BILLERNO.add(x.getB_No());
+        }
+
     }
 
 }
