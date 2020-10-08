@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -58,19 +59,32 @@ public class BillerMaintainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Biller biller = new Biller(etBCustomer.getText().toString(),etBName.getText().toString(),etBNick.getText().toString(),etBNo.getText().toString());
-                billerHandler.addBiller(biller);
+                if(TextUtils.isEmpty(etBCustomer.getText())) {
+                    etBCustomer.setError("Customer Name is Required");
+                }else if(TextUtils.isEmpty(etBName.getText())){
+                    etBName.setError("Biller Name is Required");
+                }else if(TextUtils.isEmpty(etBNick.getText())){
+                    etBNick.setError("Biller Nickname is Required");
+                }else if(TextUtils.isEmpty(etBNo.getText())){
+                    etBNo.setError("Biller Number is Required");
+                }else {
+                    Biller biller = new Biller(etBCustomer.getText().toString(),etBName.getText().toString(),etBNick.getText().toString(),etBNo.getText().toString());
+                    billerHandler.addBiller(biller);
 
-                SharedPreferences.Editor editor = sharedpreferences.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(billerHandler);
-                editor.putString("BILLER_HANDLER",json);
-                editor.apply();
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    Gson gson = new Gson();
+                    String json = gson.toJson(billerHandler);
+                    editor.putString("BILLER_HANDLER",json);
+                    editor.apply();
 
-                etBCustomer.setText("");etBName.setText("");etBNick.setText("");etBNo.setText("");
-                displayAlert("Success","Biller successfully added.");
+                    etBCustomer.setText("");
+                    etBName.setText("");
+                    etBNick.setText("");
+                    etBNo.setText("");
+                    displayAlert("Success","Biller successfully added.");
 
-                populateList();
+                    populateList();
+                }
 
             }
         });
