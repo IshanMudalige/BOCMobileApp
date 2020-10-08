@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +51,17 @@ public class OwnAccount extends AppCompatActivity {
         btnpaynowOA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToAccount = cbtoAccount.getText().toString();
-                FromAccount = cbfromaccount.getText().toString();
-                amount = OAmount.getText().toString();
-                desc = OADescription.getText().toString();
-                showSuccessMsg();
+                if (TextUtils.isEmpty(OAmount.getText())) {
+                    OAmount.setError("Amount required");
+                } else if (TextUtils.isEmpty(OADescription.getText())) {
+                    OADescription.setError("A description required");
+                } else {
+                    ToAccount = cbtoAccount.getText().toString();
+                    FromAccount = cbfromaccount.getText().toString();
+                    amount = OAmount.getText().toString();
+                    desc = OADescription.getText().toString();
+                    showSuccessMsg();
+                }
 
             }
         });
