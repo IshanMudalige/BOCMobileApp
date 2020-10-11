@@ -184,12 +184,17 @@ public class ThirdpartyTransferActivity extends AppCompatActivity {
         String json = sharedpreferences.getString("PAYEE_HANDLER", "");
         payeeHandler = gson.fromJson(json, PayeeHandler.class);
 
-        list = payeeHandler.getPayee();
-        PAYEE.clear();
-        for(Payee x:list){
+        try {
+            list = payeeHandler.getPayee();
+            PAYEE.clear();
+            for (Payee x : list) {
 
-            System.out.println(x.getName());
-            PAYEE.add(x.getName());
+                System.out.println(x.getName());
+                PAYEE.add(x.getName());
+            }
+
+        }catch(NullPointerException e){
+            e.printStackTrace();
         }
     }
 

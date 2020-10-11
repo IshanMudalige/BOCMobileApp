@@ -185,12 +185,16 @@ public class PayBills extends AppCompatActivity {
         String json = sharedpreferences.getString("BILLER_HANDLER", "");
         billerHandler = gson.fromJson(json, BillerHandler.class);
 
-        list = billerHandler.getBiller();
-        BILLER.clear();
-        for(Biller x:list){
+        try {
+            list = billerHandler.getBiller();
+            BILLER.clear();
+            for (Biller x : list) {
 
-            System.out.println(x.getB_name());
-            BILLER.add(x.getB_name());
+                System.out.println(x.getB_name());
+                BILLER.add(x.getB_name());
+            }
+        }catch(NullPointerException e){
+            e.printStackTrace();
         }
     }
 
